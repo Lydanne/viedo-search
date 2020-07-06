@@ -1,7 +1,7 @@
 import axios from "@/common/tools/http.js"
 import { looseJsonParse } from "@/common/tools"
 import { Base64 } from 'js-base64'
-import { source } from '@/config.js' 
+import config from '@/config.js' 
 
 /**
  * 获取源信息
@@ -13,7 +13,7 @@ import { source } from '@/config.js'
  *  }]
  */
 export async function getSources(){
-  const res = await axios.get(source);
+  const res = await axios.get(config.source);
   return res.data.tree.filter(item => item.path.search(/^sources\//gm)!==-1);
 }
 
