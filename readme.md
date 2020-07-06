@@ -11,4 +11,4 @@ src: 源码
 
   source-tools: PC端的站源开发工具
 
-  voide-search: APP
+  viedo-search: APP源码
