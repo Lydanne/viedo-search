@@ -12,3 +12,9 @@ src: 源码
   source-tools: PC端的站源开发工具
 
   viedo-search: APP源码
+
+## 开源协议
+
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
