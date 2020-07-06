@@ -1,0 +1,15 @@
+$primary-color:#30A9DE;
+$sub-color:#EFDC05;
+$hight-color:#E53A40;
+$black-color:#090707;
+
+:export {
+  primaryColor:$primary-color;
+  subColor:$sub-color;
+  hightColor:$hight-color;
+  blackColor:$black-color;
+}
+
+/*
+	注意：如果想要修改主题，还需要去config.js里进行修改theme这个对象
+*/

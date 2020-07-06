@@ -1,0 +1,65 @@
+{
+	"easycom": {
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue",
+		"^(.*)-(.*)": "@/components/$1-$2/$1-$2.vue"
+	},
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "搜索"
+			}
+		},
+		{
+			"path": "pages/collection/collection",
+			"style": {
+				"navigationBarTitleText": "汇总"
+			}
+		},
+		{
+			"path": "pages/source/source",
+			"style": {
+				"navigationBarTitleText": "站源"
+			}
+		},
+		{
+			"path": "pages/me/me",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/result/result",
+			"style": {
+				"navigationBarTitleText": "结果"
+			}
+		},
+		{
+			"path": "pages/play/play",
+			"style": {
+				"navigationBarTitleText": "播放"
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#FFF",
+		"selectedColor": "#E53A40",
+		"backgroundColor": "#090707",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "搜索"
+			},
+			{
+				"pagePath": "pages/source/source",
+				"text": "站源"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#30A9DE",
+		"backgroundColor": "#FFFFFF"
+	}
+}

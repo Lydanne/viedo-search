@@ -1,0 +1,21 @@
+{
+  "name": "voide-search",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "http-crawler": "^0.1.3",
+    "js-base64": "^2.6.2",
+    "jsonpath": "^1.0.2",
+    "luch-request": "^3.0.3",
+    "node-html-parser": "^1.2.20",
+    "uview-ui": "^1.4.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
