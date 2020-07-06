@@ -2,8 +2,8 @@
     "name" : "viedo search",
     "appid" : "__UNI__AD03641",
     "description" : "一个可配置站源的视频搜索播放APP",
-    "versionName" : "0.1.0",
-    "versionCode" : 10,
+    "versionName" : "0.1.1",
+    "versionCode" : 11,
     "transformPx" : false,
     "app-plus" : {
         "nvueCompiler" : "uni-app",
