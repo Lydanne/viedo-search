@@ -20,7 +20,7 @@
         <!--WumaCoder-->
         <u-icon name="github-circle-fill" size="128"></u-icon>
         <span>WumaCoder</span>
-        <span>v0.1.1</span>
+        <span>v0.1.2</span>
       </view>
     </view>
     <!-- <view class="top200">
@@ -68,7 +68,7 @@ export default {
     },
   },
   async created() {
-    this.getMovieList();
+    // this.getMovieList();
   },
 };
 </script>
@@ -76,7 +76,7 @@ export default {
 <style lang="scss">
 .container {
   .box {
-    height: 80vh;
+    height: 100vh;
     background-color: #30a9de;
     padding: 0 10%;
     padding-top: 10%;

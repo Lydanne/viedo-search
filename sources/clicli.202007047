@@ -11,30 +11,20 @@
   },
   steps: [
     {
-      url: 'https://api.clicli.us/search/posts',
-      params: {
-        key: '{{v-meta=$.search}}'
-      },
+      url: 'https://api.clicli.us/search/posts?key={{v-meta=search}}',
       resultModel: {
-        home: '{{v-meta=$.home}}',
-        id: '{{v-response=$.data.posts[*].id}}',
-        title: '{{v-response=$.data.posts[*].title}}',
-      },
+        home: '{{v-meta=home}}',
+        id: '{{v-response=data.posts[*].id}}',
+        title: '{{v-response=data.posts[*].title}}',
+      }
     },
     {
       key:'voides',
-      url: 'https://api.clicli.us/videos',
-      method: 'get',
-      params: {
-        pid: '{{v-prev-mres=$[*].id}}',
-        page: '1',
-        pageSize: '150'
-      },
+      url: 'https://api.clicli.us/videos?pid={{v-prev-mres=[*].id}}&page=1&pageSize=150',
       isMergeResult: false,
       resultModel: {
-        name: '第{{v-response=$.data.videos[*].oid}}集 {{v-response=$.data.videos[*].title}}',
-        url: '{{v-response=$.data.videos[*].content}}',
-        home: '{{v-meta=$.home}}'
+        name: '第{{v-response=data.videos[*].oid}}集 {{v-response=data.videos[*].title}}',
+        url: '{{v-response=data.videos[*].content}}'
       },
     }
   ]

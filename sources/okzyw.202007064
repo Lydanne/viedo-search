@@ -15,23 +15,23 @@
       method: 'post',
       dataType: 'formdata',
       data: {
-        wd: '{{v-meta=$.search}}',
+        wd: '{{v-meta=search}}',
         submit: 'search'
       },
       resultModel: {
-        home: '{{v-meta=$.home}}',
-        title: '{{v-response-html=.xing_vb4|$[*].structuredText}}',
-        router: '{{v-response-html=.xing_vb4|$[*].firstChild.attributes.href}}',
+        home: '{{v-meta=home}}',
+        title: '{{v-response-html=.xing_vb4|[*].structuredText}}',
+        router: '{{v-response-html=.xing_vb4|[*].firstChild.attributes.href}}',
       },
     },
     {
       key: 'voides',
-      url: 'http://okzyw.com{{v-prev-mres=$[*].router}}',
+      url: 'http://okzyw.com{{v-prev-mres=[*].router}}',
       method: 'get',
       isMergeResult: false,
       resultModel: {
-        name: '{{v-response-html=[name=copy_sel]|$[*].parentNode.structuredText}}',
-        url: '{{v-response-html=[name=copy_sel]|$[*].attributes.value}}'
+        name: '{{v-response-html=[name=copy_sel]|[*].parentNode.structuredText}}',
+        url: '{{v-response-html=[name=copy_sel]|[*].attributes.value}}'
       },
     }
   ]

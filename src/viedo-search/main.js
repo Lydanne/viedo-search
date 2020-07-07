@@ -6,10 +6,6 @@ import * as douban from './common/apis/douban.js'
 import config from './config.js'
 import * as native from './common/tools/native'
 import {store} from './store'
-import { HttpCrawler } from 'http-crawler'
-import http from './common/tools/http'
-
-HttpCrawler.http = http.request.bind(http);
 
 Vue.use(uView);
 Vue.config.productionTip = false;

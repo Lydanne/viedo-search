@@ -1,10 +1,9 @@
 <script>
+	import jmespath from 'jmespath'
 export default {
 	onLaunch:async function() {
 		await this.$store.dispatch('Source/inspect');
 		await this.$store.dispatch('Source/update');
-		// await this.$store.dispatch('Source/search','斗罗大陆');
-		// console.log(this.$store.state);
 		console.log('App Launch');
 	},
 	onShow: function() {

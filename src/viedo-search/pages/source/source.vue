@@ -50,7 +50,7 @@ export default {
       await this.$store.dispatch("Source/inspect");
 			await this.$store.dispatch("Source/update");
 			uni.showToast({
-					title: '更新状态',
+					title: '更新完成',
 					duration: 2000
 			});
     },
