@@ -79,11 +79,8 @@ export default {
 <style lang="scss">
 .play {
   width: 100%;
-  height: 230px;
   background-color: #ddd;
   .video{
-    position:fixed;
-    top: 44px;
     width: 100%;
   }
 }
