@@ -20,7 +20,6 @@
         <!--WumaCoder-->
         <u-icon name="github-circle-fill" size="128"></u-icon>
         <span>WumaCoder</span>
-        <span>v0.1.2</span>
       </view>
     </view>
     <!-- <view class="top200">
