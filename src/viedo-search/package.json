@@ -3,7 +3,7 @@
   "description": "一个视频APP",
   "main": "main.js",
   "dependencies": {
-    "http-crawler": "^1.0.0",
+    "http-crawler": "^1.0.1",
     "jmespath": "^0.15.0",
     "js-base64": "^2.6.2",
     "luch-request": "^3.0.3",

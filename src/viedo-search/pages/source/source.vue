@@ -14,7 +14,7 @@
         :key="item.meta.name"
         :options="options"
         ><u-cell-item
-          :title="item.meta.name"
+          :title="item.meta.name.toUpperCase()"
           :label="item.meta.home"
           :value="item.meta.version"
           :arrow="false"
@@ -28,18 +28,18 @@ export default {
   data() {
     return {
       options: [
-        {
-          text: "编辑",
-          style: {
-            backgroundColor: this.$scss.primaryColor,
-          },
-        },
-        {
-          text: "删除",
-          style: {
-            backgroundColor: this.$scss.hightColor,
-          },
-        },
+        // {
+        //   text: "编辑",
+        //   style: {
+        //     backgroundColor: this.$scss.primaryColor,
+        //   },
+        // },
+        // {
+        //   text: "删除",
+        //   style: {
+        //     backgroundColor: this.$scss.hightColor,
+        //   },
+        // },
       ],
       list: this.$store.state.Source.list,
       updateTime: this.$store.state.Source.updateTime,

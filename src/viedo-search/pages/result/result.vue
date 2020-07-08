@@ -16,6 +16,7 @@
         @click="onClick(index)"
       ></u-cell-item>
     </u-cell-group>
+    <u-empty v-if="!this.$store.state.Source.isLoading && list.length===0" class="empty" text="没有搜到您要看的视频,请检查标题" mode="search"></u-empty>
   </view>
 </template>
 
@@ -23,13 +24,12 @@
 export default {
   data() {
     return {
-      list: []
+      list: [],
+      search:""
     };
   },
   methods: {
     onClick(index) {
-      console.log(index);
-
       uni.navigateTo({ url: "/pages/play/play?index=" + index });
     },
     splitText(str=""){
@@ -57,5 +57,8 @@ export default {
   .text{
     margin-left: 5px;
   }
+}
+.empty{
+  padding: 200px 0;
 }
 </style>

@@ -1,5 +1,5 @@
 import { getSources, getSource } from '@/common/apis/gitee'
-import { sourceParse, isEmpty } from '@/common/tools'
+import { sourceParse, isArray } from '@/common/tools'
 import { HttpCrawler } from 'http-crawler'
 export default {
   namespaced: true,
@@ -129,8 +129,14 @@ export default {
       for (let i = 0; i < promises.length; i++) {
         const promise = promises[i];
         promise.then( res => {
+          console.log(res);
+          
+          if(!isArray(res)){
+            res = [];
+          }
+          const filterArr = res.filter(item => item.title.indexOf(searchIn)!==-1);
+          commit('addResultList', filterArr);
           num --;
-          commit('addResultList',res);
           if(num<=0){
             commit('change', { key: 'isLoading', value: false });
           }

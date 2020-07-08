@@ -4,7 +4,7 @@
       <!--播放区-->
       <video class="video" :src="playUrl" :title="playTitle"></video>
     </view>
-    <h4 class="title">点击下方选择剧集</h4>
+    <h4 class="title">点击下方选择剧集(请优先选择mp4、flv、m3u8格式)</h4>
     <view class="voide">
       <!--视频区-->
       <u-tag
@@ -38,7 +38,12 @@ export default {
   computed: {
     voidelist() {
       const i = this.index;
-      return this.$store.state.Source.resultList[i].voides;
+      const voides = this.$store.state.Source.resultList[i].voides
+      // const list = voides.filter(item => item.url.search(/(.mp4|.flv|.m3u8)$/igm)!==-1);
+      // if(list.length){
+      //   return list;
+      // }
+      return voides;
     },
     srcList() {
       return this.voidelist.map(item => item.url);
@@ -74,8 +79,11 @@ export default {
 <style lang="scss">
 .play {
   width: 100%;
+  height: 230px;
   background-color: #ddd;
   .video{
+    position:fixed;
+    top: 44px;
     width: 100%;
   }
 }
