@@ -2,7 +2,7 @@
   meta: {
     name: 'clicli',
     home: 'clicli.me',
-    version: '202007047',
+    version: '202007048',
     search: '超电磁'
   },
   option: {
@@ -14,17 +14,17 @@
       url: 'https://api.clicli.us/search/posts?key={{v-meta=search}}',
       resultModel: {
         home: '{{v-meta=home}}',
-        id: '{{v-response=data.posts[*].id}}',
-        title: '{{v-response=data.posts[*].title}}',
+        id: '{{v-resp=data.posts[*].id}}',
+        title: '{{v-resp=data.posts[*].title}}',
       }
     },
     {
       key:'voides',
-      url: 'https://api.clicli.us/videos?pid={{v-prev-mres=[*].id}}&page=1&pageSize=150',
+      url: 'https://api.clicli.us/videos?pid={{v-prev-res=[*].id}}&page=1&pageSize=150',
       isMergeResult: false,
       resultModel: {
-        name: '第{{v-response=data.videos[*].oid}}集 {{v-response=data.videos[*].title}}',
-        url: '{{v-response=data.videos[*].content}}'
+        name: '第{{v-resp=data.videos[*].oid}}集 {{v-resp=data.videos[*].title}}',
+        url: '{{v-resp=data.videos[*].content}}'
       },
     }
   ]

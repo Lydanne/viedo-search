@@ -130,10 +130,10 @@ export default {
         const promise = promises[i];
         promise.then( res => {
           num --;
+          commit('addResultList',res);
           if(num<=0){
             commit('change', { key: 'isLoading', value: false });
           }
-          commit('addResultList',res);
         });
       }
     },

@@ -1,7 +1,7 @@
 ({
   meta: {
     name: 'okzyw',
-    version: '202007064',
+    version: '202007065',
     search: '超电磁',
     home: 'okzyw.com',
   },
@@ -20,18 +20,17 @@
       },
       resultModel: {
         home: '{{v-meta=home}}',
-        title: '{{v-response-html=.xing_vb4|[*].structuredText}}',
-        router: '{{v-response-html=.xing_vb4|[*].firstChild.attributes.href}}',
+        title: '{{v-resp-html=.xing_vb4|[*].structuredText}}',
+        router: '{{v-resp-html=.xing_vb4|[*].firstChild.attributes.href}}',
       },
     },
     {
       key: 'voides',
-      url: 'http://okzyw.com{{v-prev-mres=[*].router}}',
-      method: 'get',
+      url: 'http://okzyw.com{{v-prev-res=[*].router}}',
       isMergeResult: false,
       resultModel: {
-        name: '{{v-response-html=[name=copy_sel]|[*].parentNode.structuredText}}',
-        url: '{{v-response-html=[name=copy_sel]|[*].attributes.value}}'
+        name: '{{v-resp-html=[name=copy_sel]|[*].parentNode.structuredText}}',
+        url: '{{v-resp-html=[name=copy_sel]|[*].attributes.value}}'
       },
     }
   ]

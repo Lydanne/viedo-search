@@ -1,5 +1,4 @@
 <script>
-	import jmespath from 'jmespath'
 export default {
 	onLaunch:async function() {
 		await this.$store.dispatch('Source/inspect');

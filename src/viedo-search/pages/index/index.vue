@@ -59,9 +59,9 @@ export default {
     },
     onCopy() {
       uni.setClipboardData({
-        data: "https://github.com/WumaCoder/viedo-search",
+        data: "https://github.com/WumaCoder/viedo-search/releases",
         success: function () {
-          uni.showToast({title:'复制仓库'});
+          uni.showToast({title:'复制仓库链接'});
         },
       });
     },

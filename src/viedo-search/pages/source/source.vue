@@ -3,7 +3,7 @@
     <view class="bar">
       <text class="btn-text space-l" @click="onClickUpdate">
         <u-icon name="attach" class="space-r"></u-icon>
-        更新源
+        更新站源
       </text>
       <!-- <text class="btn-text space-l">自定义</text> -->
       <!-- <text class="text-date">更新时间:{{updateTime}}</text> -->
@@ -41,18 +41,26 @@ export default {
           },
         },
       ],
-			list: this.$store.state.Source.list,
-			updateTime:this.$store.state.Source.updateTime,
+      list: this.$store.state.Source.list,
+      updateTime: this.$store.state.Source.updateTime,
     };
   },
   methods: {
     async onClickUpdate() {
       await this.$store.dispatch("Source/inspect");
-			await this.$store.dispatch("Source/update");
-			uni.showToast({
-					title: '更新完成',
-					duration: 2000
-			});
+      if (this.$store.state.Source.isUpdate) {
+        const [err, res] = await uni.showModal({
+          title: "提示",
+          content: "发现有更新，点击确认进行更新站源",
+        });
+        if (res.confirm) {
+          await this.$store.dispatch("Source/update");
+          uni.showToast({
+            title: "更新完成",
+            duration: 2000,
+          });
+        }
+      }
     },
   },
   async created() {},
