@@ -2,7 +2,7 @@
   meta: {
     name: 'clicli',
     home: 'clicli.me',
-    version: '202007048',
+    version: '202007049',
     search: '超电磁'
   },
   option: {
@@ -20,7 +20,7 @@
     },
     {
       key:'voides',
-      url: 'https://api.clicli.us/videos?pid={{v-prev-res=[*].id}}&page=1&pageSize=150',
+      url: 'https://api.clicli.us/videos?pid={{v-prev-resu=[*].id}}&page=1&pageSize=150',
       isMergeResult: false,
       resultModel: {
         name: '第{{v-resp=data.videos[*].oid}}集 {{v-resp=data.videos[*].title}}',
