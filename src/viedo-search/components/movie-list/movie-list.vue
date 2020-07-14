@@ -1,11 +1,12 @@
 <template>
 	<view class="container">
-		<movie-item v-for="item in list" :key="item.id" :props="item"></movie-item>
+		<movie-item v-for="item in _p.list" :key="item.id" :props="item"></movie-item>
 	</view>
 </template>
 
 <script>
 	import propsMixin from '@/mixins/props-mixin.vue'
+
 	export default {
 		mixins:[propsMixin],
 		props:{
