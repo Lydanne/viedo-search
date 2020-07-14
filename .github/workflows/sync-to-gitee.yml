@@ -1,4 +1,4 @@
-name: sync to gitee
+name: SyncToGitee
 on:
   - push
   - pull_request
