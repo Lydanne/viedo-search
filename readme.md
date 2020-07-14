@@ -1,4 +1,13 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-06 22:20:25
+ * @LastEditTime: 2020-07-14 17:35:33
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \VideoSearch\readme.md
+--> 
 # Viedo Search
+![](https://github.com/actions/SyncToGitee/workflows/.github/workflows/sync-gitee.yml/badge.svg)
 一个强大可配置站源的视频搜索器
 
 ## 目录说明

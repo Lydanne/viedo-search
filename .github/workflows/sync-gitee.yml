@@ -3,9 +3,11 @@ on:
   - push
   - pull_request
 jobs:
-  f_job:
-    name: fast job
-    runs-on: ubuntu-18.04
-    steps:
-      - name: Ping google
-        run: echo ${{secrets.GITEE_KEY}}
+  sync:
+    name: sync
+    uses: Yikun/hub-mirror-action@master
+    with:
+      src: github/WumaCoder
+      dst: gitee/WumaCoder
+      dst_key: ${{ secrets.GITEE_KEY }}
+      white_list: "viedo-search"
