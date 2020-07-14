@@ -4,22 +4,22 @@
       <!--播放区-->
       <video class="video" :src="playUrl" :title="playTitle"></video>
     </view>
-    <h4 class="title">点击下方选择剧集(请优先选择mp4、flv、m3u8格式)</h4>
+    <u-tabs :list="tabList" :current="tabIndex" @change="onChangeTab"></u-tabs>
+    <h4 class="title">点击下方选择剧集</h4>
     <view class="voide">
       <!--视频区-->
       <u-tag
-        v-for="(item, index) in voidelist"
-        :key="index"
+        v-for="(item, index) in currentTab.voideList"
+        :key="item.url"
         class="item"
-        :text="item.name"
+        :text="item.name | formatName"
         type="success"
         :mode="active(index)"
         @click="onClickPlay(index)"
       />
     </view>
+    <h4 class="title">资源来自</h4>
     <view class="foot">
-      <!--来源-->
-      资源来自 <br />
       {{ resultItem.home }}
     </view>
   </view>
@@ -32,21 +32,65 @@ export default {
       playIndex: 0,
       playUrl: "",
       playTitle: "",
-      index:0,
+      index: 0,
+      tabList: [],
+      tabIndex: 0,
     };
   },
+  filters: {
+    formatName(value) {
+      const find$ = value.indexOf("$");
+      if (find !== -1) {
+        return value.substring(0, find$);
+      }
+      return value;
+    },
+  },
   computed: {
-    voidelist() {
+    currentTab(){
+      if(this.tabList.length){
+        return this.tabList[this.tabIndex];
+      }
+      return {};
+    },
+    mp4VideoList() {
       const i = this.index;
-      const voides = this.$store.state.Source.resultList[i].voides
-      // const list = voides.filter(item => item.url.search(/(.mp4|.flv|.m3u8)$/igm)!==-1);
-      // if(list.length){
-      //   return list;
-      // }
-      return voides;
+      const voides = this.$store.state.Source.resultList[i].voides;
+      const list = voides.filter((item) => item.url.search(/\.mp4$/gim) !== -1);
+      if (list.length) {
+        return list;
+      }
+      return [];
+    },
+    m3u8VideoList() {
+      const i = this.index;
+      const voides = this.$store.state.Source.resultList[i].voides;
+      const list = voides.filter(item => item.url.search(/\.m3u8$/igm)!==-1);
+      if(list.length){
+        return list;
+      }
+      return [];
+    },
+    flvVideoList() {
+      const i = this.index;
+      const voides = this.$store.state.Source.resultList[i].voides;
+      const list = voides.filter(item => item.url.search(/\.flv$/igm)!==-1);
+      if(list.length){
+        return list;
+      }
+      return [];
+    },
+    otherVideoList() {
+      const i = this.index;
+      const voides = this.$store.state.Source.resultList[i].voides;
+      const list = voides.filter(item => item.url.search(/(.mp4|.flv|.m3u8)$/igm)===-1);
+      if(list.length){
+        return list;
+      }
+      return [];
     },
     srcList() {
-      return this.voidelist.map(item => item.url);
+      return this.voidelist.map((item) => item.url);
     },
     resultItem() {
       const i = this.index;
@@ -57,22 +101,35 @@ export default {
     active(index) {
       return index === this.playIndex ? "dark" : "plain";
     },
+    inittabList(){
+      const voideLists = [this.mp4VideoList, this.m3u8VideoList, this.flvVideoList, this.otherVideoList];
+      let voideLine = 1;
+      voideLists.forEach(voideList=>{
+        if(voideList.length){
+          this.tabList.push({
+            name:'线路'+voideLine++,
+            voideList:voideList,
+          });
+        }
+      });
+    },
     onClickPlay(index) {
-      this.playTitle = this.voidelist[index].name;
-      this.playUrl = this.voidelist[index].url;
-      this.playIndex = index;
+      if(this.currentTab.voideList){
+        this.playTitle = this.currentTab.voideList[index].name;
+        this.playUrl = this.currentTab.voideList[index].url;
+        this.playIndex = index;
+      }
+    },
+    onChangeTab(index) {
+      this.tabIndex = index;
+      this.onClickPlay(this.playIndex);
     },
   },
-  async created() {
-    // console.log(this.$store.state);
-    // #ifdef APP-PLUS
-    this.index = this.$options.pageQuery.index;
-    // #endif
-    // #ifdef H5
-    this.index = this.options.index;
-    // #endif
-    this.onClickPlay(0);
-  },
+  beforeMount() {
+    this.index = this.$query.index;
+    this.inittabList();
+    this.onChangeTab(0);
+  }
 };
 </script>
 
@@ -80,7 +137,7 @@ export default {
 .play {
   width: 100%;
   background-color: #ddd;
-  .video{
+  .video {
     width: 100%;
   }
 }
@@ -98,8 +155,7 @@ export default {
 }
 
 .foot {
-  margin: 20px 10px;
+  margin: 5px 10px;
   margin-bottom: 30px;
-  font-size: 0.9rem;
 }
 </style>
