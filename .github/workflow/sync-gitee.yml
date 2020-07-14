@@ -1,3 +1,4 @@
+name: sync to gitee
 on:
   - push
   - pull_request
