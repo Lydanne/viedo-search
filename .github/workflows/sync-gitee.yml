@@ -9,4 +9,3 @@ jobs:
     steps:
       - name: Ping google
         run: ping google.com
-  s_job: fast
