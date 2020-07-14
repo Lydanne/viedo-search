@@ -5,9 +5,12 @@ on:
 jobs:
   sync:
     name: sync
-    uses: Yikun/hub-mirror-action@master
-    with:
-      src: github/WumaCoder
-      dst: gitee/WumaCoder
-      dst_key: ${{ secrets.GITEE_KEY }}
-      white_list: "viedo-search"
+    runs-on: ubuntu-latest
+    steps:
+      - name: sync viedo-search
+        uses: Yikun/hub-mirror-action@master
+        with:
+          src: github/WumaCoder
+          dst: gitee/WumaCoder
+          dst_key: ${{ secrets.GITEE_KEY }}
+          white_list: "viedo-search"
