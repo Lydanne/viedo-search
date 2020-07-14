@@ -1,0 +1,11 @@
+on:
+  - push
+  - pull_request
+jobs:
+  f_job:
+    name: fast job
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Ping google
+        run: ping google.com
+  s_job: fast
