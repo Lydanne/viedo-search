@@ -19,15 +19,21 @@ export const store = new Vuex.Store({
 	},
 	getters: {
 		currentVersion(state) {
+			if(state.versionIndex===-1){
+				return {commit:{}};
+			}
 			return state.versions[state.versionIndex];
 		},
 		lastVersion(state) {
+			if(state.versions.length===0){
+				return {commit:{}};
+			}
 			return state.versions[state.versions.length - 1];
 		}
 	},
 	mutations: {
 		uptVersions(state, versions) {
-			state.versions = versions;
+			state.versions.splice(0,state.versions.length,...versions);
 		},
 		setVersionIndex(state, index) {
 			state.versionIndex = index;
