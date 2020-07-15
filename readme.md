@@ -1,4 +1,14 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-06 22:20:25
+ * @LastEditTime: 2020-07-14 19:24:36
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \VideoSearch\readme.md
+--> 
 # Viedo Search
+![SyncToGitee](https://github.com/WumaCoder/viedo-search/workflows/SyncToGitee/badge.svg)
+
 一个强大可配置站源的视频搜索器
 
 ## 目录说明

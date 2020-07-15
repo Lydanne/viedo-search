@@ -7,8 +7,11 @@ import config from './config.js'
 import { axios } from './common/tools/http'
 import { HttpCrawler } from 'http-crawler'
 import { store } from './store'
+import HandleMixin from './mixins/handle-mixin.vue'
 
 HttpCrawler.http = axios;
+
+Vue.mixin(HandleMixin);
 
 Vue.use(uView);
 Vue.config.productionTip = false;

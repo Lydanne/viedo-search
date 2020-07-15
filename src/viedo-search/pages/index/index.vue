@@ -13,19 +13,13 @@
         :show-action="false"
         @search="onSearch"
       ></u-search>
-      <!-- 			<view class="tip">
-				<u-tag class="item" size="mini" text="异世界居酒屋阿信" shape="circleRight" type="info" mode="plain"  closeable  />
-			</view> -->
       <view class="github" @click="onCopy">
         <!--WumaCoder-->
         <u-icon name="github-circle-fill" size="128"></u-icon>
         <span>WumaCoder</span>
+        <span>{{$store.getters.currentVersion.name}}</span>
       </view>
     </view>
-    <!-- <view class="top200">
-      <movie-list :list="movieList"></movie-list>
-      <u-loadmore margin-bottom="20" :status="status" />
-    </view> -->
     <foot-end></foot-end>
   </view>
 </template>

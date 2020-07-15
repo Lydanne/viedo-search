@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-06 21:57:48
+ * @LastEditTime: 2020-07-14 19:57:40
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \VideoSearch\src\viedo-search\mixins\props-mixin.vue
+--> 
 <script>
 	export default{
 		props:{
@@ -15,11 +23,5 @@
 				return t;
 			}
 		},
-		methods:{
-			
-		},
-		created(){
-			this._a
-		}
 	}
 </script>

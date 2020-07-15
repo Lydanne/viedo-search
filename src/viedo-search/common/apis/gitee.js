@@ -2,6 +2,7 @@ import axios from "@/common/tools/http.js"
 import { looseJsonParse } from "@/common/tools"
 import { Base64 } from 'js-base64'
 import config from '@/config.js' 
+import { download, installApp } from '../tools/native.js'
 
 /**
  * 获取源信息
@@ -27,7 +28,18 @@ export async function getSources(){
  *    ...
  * }
  */
-export async function getSource (SourceItem){
+export async function getSource(SourceItem){
   const res = await axios.get(SourceItem.url || SourceItem);
   return looseJsonParse(Base64.decode(res.data.content));
+}
+
+export async function getVersions(){
+	return await axios.get(config.updateUrl).then(res=>res.data);
+}
+
+export async function downloadInatallApp(version){
+	const url = `https://download.fastgit.org/WumaCoder/viedo-search/releases/download/${version.name}/steup.apk`;
+	const res = await download(url);
+	const instal = await installApp(res);
+	return res;
 }
