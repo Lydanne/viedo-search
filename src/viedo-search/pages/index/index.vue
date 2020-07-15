@@ -20,6 +20,7 @@
         <!--WumaCoder-->
         <u-icon name="github-circle-fill" size="128"></u-icon>
         <span>WumaCoder</span>
+        <span>{{$store.getters.currentVersion.name}}</span>
       </view>
     </view>
     <!-- <view class="top200">

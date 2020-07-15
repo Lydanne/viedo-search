@@ -39,9 +39,9 @@ export default {
   },
   filters: {
     formatName(value) {
-      const find$ = value.indexOf("$");
-      if (find !== -1) {
-        return value.substring(0, find$);
+      const findIndex = value.indexOf("$");
+      if (findIndex !== -1) {
+        return value.substring(0, findIndex);
       }
       return value;
     },

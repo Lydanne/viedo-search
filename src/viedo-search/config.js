@@ -11,6 +11,7 @@ const config = {
 	},
 	cfBaseUrl:'http://wmtest.xyz:8888',
 	source:'https://gitee.com/api/v5/repos/WumaCoder/viedo-search/git/trees/master?recursive=1',
+	updateUrl:'https://gitee.com/api/v5/repos/WumaCoder/viedo-search/tags',
 };
 
 if (process.env.NODE_ENV === 'development') {
